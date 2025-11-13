@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页 - 医学影像研究</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 导航条 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>我的主页</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">关于我</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">项目</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#knowledge-graph" class="nav-link">知识图谱</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">联系我</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页部分 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-image">
+                <img src="images/profile.jpg" alt="个人照片" id="profile-img">
+            </div>
+            <h1 class="hero-title">欢迎访问我的主页</h1>
+            <p class="hero-subtitle">医学影像AI研究者 | 知识图谱开发者</p>
+            <button class="cta-button" id="learn-more">了解更多</button>
+        </div>
+        <div class="scroll-indicator">
+            <span>↓</span>
+        </div>
+    </section>
+
+    <!-- 关于我部分 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>我是一名专注于医学影像人工智能研究的开发者，致力于将先进的技术应用于医疗诊断和治疗。</p>
+                    <p>拥有多年的医学影像处理和分析经验，特别在磁共振成像（MRI）领域有深入研究。</p>
+                    <div class="skills">
+                        <h3>技术专长</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">医学影像处理</span>
+                            <span class="skill-tag">知识图谱</span>
+                            <span class="skill-tag">机器学习</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 知识图谱项目部分 -->
+    <section id="knowledge-graph" class="knowledge-graph">
+        <div class="container">
+            <h2 class="section-title">医学影像知识图谱项目</h2>
+            <div class="project-details">
+                <div class="project-info">
+                    <h3>基于MRI的医学影像知识图谱系统</h3>
+                    <p>本项目构建了一个全面的磁共振成像知识图谱，整合了影像特征、疾病诊断、解剖结构等多维度信息。</p>
+                    
+                    <div class="tech-stack">
+                        <h4>技术栈：</h4>
+                        <ul>
+                            <li><strong>图数据库：</strong> Neo4j</li>
+                            <li><strong>数据处理：</strong> Python + Py2neo</li>
+                            <li><strong>可视化：</strong> D3.js + ECharts</li>
+                            <li><strong>Web框架：</strong> Flask</li>
+                        </ul>
+                    </div>
+
+                    <div class="features">
+                        <h4>主要功能：</h4>
+                        <ul>
+                            <li>MRI影像实体关系建模</li>
+                            <li>疾病-影像特征关联分析</li>
+                            <li>智能检索与推荐</li>
+                            <li>可视化知识探索</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="graph-visualization">
+                    <h4>知识图谱可视化</h4>
+                    <div id="knowledge-graph-demo" class="graph-container">
+                        <!-- 这里将用JavaScript动态生成知识图谱 -->
+                    </div>
+                    <button id="refresh-graph" class="demo-button">刷新图谱</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 其他项目部分 -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">其他项目</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>MRI图像分割系统</h3>
+                    <p>基于深度学习的脑部MRI图像自动分割</p>
+                </div>
+                <div class="project-card">
+                    <h3>医学影像标注工具</h3>
+                    <p>支持多种格式的医学影像标注平台</p>
+                </div>
+                <div class="project-card">
+                    <h3>AI辅助诊断系统</h3>
+                    <p>结合知识图谱的智能诊断建议</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我部分 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">联系我</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>📧 email@example.com</p>
+                    <p>📱 +86 138-0000-0000</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="姓名" required>
+                    <input type="email" placeholder="邮箱" required>
+                    <textarea placeholder="消息" rows="5" required></textarea>
+                    <button type="submit">发送消息</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 个人主页. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
