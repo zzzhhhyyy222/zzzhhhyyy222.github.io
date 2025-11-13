@@ -185,47 +185,1169 @@
         </div>
     </section>
 
+   <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赵晗烨 - 个人主页 | 医学影像学研究</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航条样式 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo h2 {
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:hover {
+            color: #3498db;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* 首页样式 */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 2rem;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+            opacity: 0.9;
+        }
+
+        .basic-info {
+            margin: 1.5rem 0;
+            text-align: center;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .basic-info p {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .cta-button {
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.6s both;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        /* 其他部分通用样式 */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* 知识图谱部分 */
+        .knowledge-graph {
+            background: #f8f9fa;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .project-info h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .project-info p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .tech-stack, .features {
+            margin: 2rem 0;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tech-stack h4, .features h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .tech-stack ul, .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .tech-stack li, .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .tech-stack li::before, .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .tech-stack li:last-child, .features li:last-child {
+            border-bottom: none;
+        }
+
+        .graph-visualization {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .graph-visualization h4 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        /* 知识图谱选项卡样式 */
+        .graph-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .graph-tab {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .graph-tab:hover {
+            color: #3498db;
+        }
+
+        .graph-tab.active {
+            color: #3498db;
+            border-bottom-color: #3498db;
+            font-weight: 600;
+        }
+
+        /* 知识图谱容器 */
+        .graph-container {
+            display: none;
+            width: 100%;
+            height: 400px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 2px dashed #ddd;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .graph-container.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .graph-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .demo-button {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .demo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 知识图谱节点样式 */
+        .graph-node {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .graph-node:hover {
+            transform: scale(1.2);
+        }
+
+        .graph-link {
+            transition: all 0.3s ease;
+        }
+
+        .graph-text {
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+
+        /* 响应式设计 */
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 1rem 0;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .project-details,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .graph-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .graph-tab {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航条 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>赵晗烨</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">关于我</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#knowledge-graph" class="nav-link">知识图谱</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">联系我</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页部分 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-image">
+                <!-- 请将您的个人照片放在images/profile.jpg -->
+                <img src="https://via.placeholder.com/180" alt="赵晗烨个人照片" id="profile-img">
+            </div>
+            <h1 class="hero-title">赵晗烨</h1>
+            <p class="hero-subtitle">医学影像学研究者 | 知识图谱开发者</p>
+            <div class="basic-info">
+                <p><i class="fas fa-graduation-cap"></i> 天津医科大学医学技术学院</p>
+                <p><i class="fas fa-user-graduate"></i> 医学影像学专业</p>
+                <p><i class="fas fa-flask"></i> 脑功能成像实验室研究员</p>
+            </div>
+            <button class="cta-button" id="learn-more">了解更多</button>
+        </div>
+        <div class="scroll-indicator">
+            <span>↓</span>
+        </div>
+    </section>
+
+    <!-- 关于我部分 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="personal-info">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <strong>姓名：</strong>赵晗烨
+                            </div>
+                            <div class="info-item">
+                                <strong>学校：</strong>天津医科大学
+                            </div>
+                            <div class="info-item">
+                                <strong>学院：</strong>医学技术学院
+                            </div>
+                            <div class="info-item">
+                                <strong>专业：</strong>医学影像学
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="experience">
+                        <h3>研究方向</h3>
+                        <p>专注于医学影像人工智能研究，特别在磁共振成像（MRI）领域有深入研究。致力于将先进的技术应用于医疗诊断和治疗。</p>
+                        
+                        <div class="research-projects">
+                            <h4>技术专长：</h4>
+                            <ul>
+                                <li>医学影像处理与分析</li>
+                                <li>知识图谱构建与应用</li>
+                                <li>机器学习与深度学习</li>
+                                <li>多模态数据融合</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 知识图谱项目部分 -->
     <section id="knowledge-graph" class="knowledge-graph">
         <div class="container">
-            <h2 class="section-title">医学影像知识图谱项目</h2>
+            <h2 class="section-title">医学影像知识图谱系统</h2>
             <div class="project-details">
                 <div class="project-info">
-                    <h3>基于MRI的脑功能成像知识图谱系统</h3>
-                    <p>结合在脑功能成像实验室的研究经验，构建专注于精神分裂症和创伤性脑损伤的MRI知识图谱，整合影像特征、遗传机制、临床表现等多维度信息。</p>
+                    <h3>多模态医学影像知识图谱平台</h3>
+                    <p>本项目构建了一个全面的医学影像知识图谱系统，整合了X线、B超、MRI和核医学四种主要影像技术的知识体系，为医学诊断和研究提供智能支持。</p>
                     
                     <div class="tech-stack">
                         <h4>技术栈：</h4>
                         <ul>
                             <li><strong>图数据库：</strong> Neo4j</li>
-                            <li><strong>数据处理：</strong> Python + Py2neo + Nibabel</li>
-                            <li><strong>影像分析：</strong> FSL、SPM、DPARSF</li>
-                            <li><strong>可视化：</strong> D3.js + ECharts</li>
-                            <li><strong>Web框架：</strong> Flask</li>
+                            <li><strong>数据处理：</strong> Python + Py2neo</li>
+                            <li><strong>影像分析：</strong> OpenCV, SimpleITK</li>
+                            <li><strong>可视化：</strong> D3.js + SVG</li>
+                            <li><strong>Web框架：</strong> Flask + JavaScript</li>
                         </ul>
                     </div>
 
                     <div class="features">
-                        <h4>研究重点：</h4>
+                        <h4>系统功能：</h4>
                         <ul>
-                            <li>静息态脑功能连接与遗传机制关联分析</li>
-                            <li>精神分裂症脑损伤调控机制可视化</li>
-                            <li>创伤性脑损伤影像特征挖掘</li>
-                            <li>多模态数据融合与智能诊断</li>
+                            <li>多模态影像实体关系建模</li>
+                            <li>疾病-影像特征关联分析</li>
+                            <li>智能检索与诊断辅助</li>
+                            <li>可视化知识探索</li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="graph-visualization">
-                    <h4>脑功能连接知识图谱演示</h4>
-                    <div id="knowledge-graph-demo" class="graph-container">
-                        <!-- 这里将用JavaScript动态生成知识图谱 -->
+                    <h4>医学影像知识图谱演示</h4>
+                    <div class="graph-tabs">
+                        <button class="graph-tab active" data-graph="mri">MRI图谱</button>
+                        <button class="graph-tab" data-graph="xray">X线图谱</button>
+                        <button class="graph-tab" data-graph="ultrasound">B超图谱</button>
+                        <button class="graph-tab" data-graph="nuclear">核医学图谱</button>
                     </div>
-                    <button id="refresh-graph" class="demo-button">刷新图谱</button>
+                    
+                    <div id="knowledge-graph-mri" class="graph-container active">
+                        <!-- MRI知识图谱将在这里渲染 -->
+                    </div>
+                    
+                    <div id="knowledge-graph-xray" class="graph-container">
+                        <!-- X线知识图谱将在这里渲染 -->
+                    </div>
+                    
+                    <div id="knowledge-graph-ultrasound" class="graph-container">
+                        <!-- B超知识图谱将在这里渲染 -->
+                    </div>
+                    
+                    <div id="knowledge-graph-nuclear" class="graph-container">
+                        <!-- 核医学知识图谱将在这里渲染 -->
+                    </div>
+                    
+                    <div class="graph-controls">
+                        <button id="refresh-graph" class="demo-button">刷新图谱</button>
+                        <button id="animate-graph" class="demo-button">动画演示</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- 联系我部分 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">联系我</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong><i class="fas fa-envelope"></i> 邮箱：</strong>
+                        <span>13991455028@163.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong><i class="fas fa-phone"></i> 电话：</strong>
+                        <span>13991455028</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong><i class="fas fa-school"></i> 学校：</strong>
+                        <span>天津医科大学</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong><i class="fas fa-book"></i> 专业：</strong>
+                        <span>医学影像学</span>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="姓名" required>
+                    <input type="email" placeholder="邮箱" required>
+                    <textarea placeholder="消息内容" rows="5" required></textarea>
+                    <button type="submit">发送消息</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 赵晗烨 - 天津医科大学医学技术学院. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 四种医学影像知识图谱数据
+        const graphData = {
+            mri: {
+                nodes: [
+                    { id: 'MRI', group: 1, size: 35, x: 250, y: 80 },
+                    { id: '静息态', group: 2, size: 30, x: 250, y: 150 },
+                    { id: '精神分裂症', group: 3, size: 28, x: 150, y: 220 },
+                    { id: '创伤性脑损伤', group: 3, size: 28, x: 350, y: 220 },
+                    { id: '脑功能连接', group: 4, size: 26, x: 250, y: 220 },
+                    { id: '遗传机制', group: 5, size: 24, x: 100, y: 300 },
+                    { id: '环境因素', group: 5, size: 24, x: 200, y: 300 },
+                    { id: '诊断标记', group: 6, size: 22, x: 300, y: 300 },
+                    { id: '治疗靶点', group: 6, size: 22, x: 400, y: 300 }
+                ],
+                links: [
+                    { source: 'MRI', target: '静息态', strength: 1 },
+                    { source: '静息态', target: '精神分裂症', strength: 0.8 },
+                    { source: '静息态', target: '创伤性脑损伤', strength: 0.8 },
+                    { source: '静息态', target: '脑功能连接', strength: 0.9 },
+                    { source: '精神分裂症', target: '遗传机制', strength: 0.7 },
+                    { source: '精神分裂症', target: '环境因素', strength: 0.6 },
+                    { source: '创伤性脑损伤', target: '脑功能连接', strength: 0.7 },
+                    { source: '脑功能连接', target: '诊断标记', strength: 0.8 },
+                    { source: '诊断标记', target: '治疗靶点', strength: 0.9 }
+                ],
+                colors: ['#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c']
+            },
+            xray: {
+                nodes: [
+                    { id: 'X线成像', group: 1, size: 35, x: 250, y: 80 },
+                    { id: '胸部X光', group: 2, size: 30, x: 150, y: 150 },
+                    { id: '骨骼X光', group: 2, size: 30, x: 350, y: 150 },
+                    { id: '肺炎', group: 3, size: 28, x: 100, y: 220 },
+                    { id: '肺结核', group: 3, size: 28, x: 200, y: 220 },
+                    { id: '骨折', group: 3, size: 28, x: 300, y: 220 },
+                    { id: '骨质疏松', group: 3, size: 28, x: 400, y: 220 },
+                    { id: '影像特征', group: 4, size: 26, x: 250, y: 280 },
+                    { id: '诊断流程', group: 5, size: 24, x: 150, y: 350 },
+                    { id: '治疗方案', group: 5, size: 24, x: 350, y: 350 }
+                ],
+                links: [
+                    { source: 'X线成像', target: '胸部X光', strength: 0.9 },
+                    { source: 'X线成像', target: '骨骼X光', strength: 0.9 },
+                    { source: '胸部X光', target: '肺炎', strength: 0.8 },
+                    { source: '胸部X光', target: '肺结核', strength: 0.7 },
+                    { source: '骨骼X光', target: '骨折', strength: 0.9 },
+                    { source: '骨骼X光', target: '骨质疏松', strength: 0.7 },
+                    { source: '肺炎', target: '影像特征', strength: 0.8 },
+                    { source: '肺结核', target: '影像特征', strength: 0.8 },
+                    { source: '骨折', target: '影像特征', strength: 0.9 },
+                    { source: '骨质疏松', target: '影像特征', strength: 0.7 },
+                    { source: '影像特征', target: '诊断流程', strength: 0.9 },
+                    { source: '诊断流程', target: '治疗方案', strength: 0.9 }
+                ],
+                colors: ['#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c']
+            },
+            ultrasound: {
+                nodes: [
+                    { id: '超声成像', group: 1, size: 35, x: 250, y: 80 },
+                    { id: '腹部超声', group: 2, size: 30, x: 150, y: 150 },
+                    { id: '心脏超声', group: 2, size: 30, x: 350, y: 150 },
+                    { id: '产科超声', group: 2, size: 30, x: 250, y: 150 },
+                    { id: '肝脏病变', group: 3, size: 28, x: 100, y: 220 },
+                    { id: '胆囊疾病', group: 3, size: 28, x: 200, y: 220 },
+                    { id: '心脏疾病', group: 3, size: 28, x: 300, y: 220 },
+                    { id: '胎儿发育', group: 3, size: 28, x: 400, y: 220 },
+                    { id: '回声特征', group: 4, size: 26, x: 250, y: 280 },
+                    { id: '血流动力学', group: 4, size: 26, x: 150, y: 350 },
+                    { id: '诊断评估', group: 5, size: 24, x: 350, y: 350 }
+                ],
+                links: [
+                    { source: '超声成像', target: '腹部超声', strength: 0.9 },
+                    { source: '超声成像', target: '心脏超声', strength: 0.9 },
+                    { source: '超声成像', target: '产科超声', strength: 0.9 },
+                    { source: '腹部超声', target: '肝脏病变', strength: 0.8 },
+                    { source: '腹部超声', target: '胆囊疾病', strength: 0.8 },
+                    { source: '心脏超声', target: '心脏疾病', strength: 0.9 },
+                    { source: '产科超声', target: '胎儿发育', strength: 0.9 },
+                    { source: '肝脏病变', target: '回声特征', strength: 0.8 },
+                    { source: '胆囊疾病', target: '回声特征', strength: 0.8 },
+                    { source: '心脏疾病', target: '血流动力学', strength: 0.9 },
+                    { source: '胎儿发育', target: '回声特征', strength: 0.7 },
+                    { source: '回声特征', target: '诊断评估', strength: 0.9 },
+                    { source: '血流动力学', target: '诊断评估', strength: 0.9 }
+                ],
+                colors: ['#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c']
+            },
+            nuclear: {
+                nodes: [
+                    { id: '核医学', group: 1, size: 35, x: 250, y: 80 },
+                    { id: 'PET', group: 2, size: 30, x: 150, y: 150 },
+                    { id: 'SPECT', group: 2, size: 30, x: 350, y: 150 },
+                    { id: '肿瘤成像', group: 3, size: 28, x: 100, y: 220 },
+                    { id: '心脏灌注', group: 3, size: 28, x: 200, y: 220 },
+                    { id: '神经受体', group: 3, size: 28, x: 300, y: 220 },
+                    { id: '骨扫描', group: 3, size: 28, x: 400, y: 220 },
+                    { id: '放射性药物', group: 4, size: 26, x: 250, y: 280 },
+                    { id: '代谢活性', group: 4, size: 26, x: 150, y: 350 },
+                    { id: '诊断分期', group: 5, size: 24, x: 350, y: 350 }
+                ],
+                links: [
+                    { source: '核医学', target: 'PET', strength: 0.9 },
+                    { source: '核医学', target: 'SPECT', strength: 0.9 },
+                    { source: 'PET', target: '肿瘤成像', strength: 0.9 },
+                    { source: 'PET', target: '神经受体', strength: 0.8 },
+                    { source: 'SPECT', target: '心脏灌注', strength: 0.9 },
+                    { source: 'SPECT', target: '骨扫描', strength: 0.8 },
+                    { source: '肿瘤成像', target: '放射性药物', strength: 0.9 },
+                    { source: '心脏灌注', target: '代谢活性', strength: 0.8 },
+                    { source: '神经受体', target: '放射性药物', strength: 0.9 },
+                    { source: '骨扫描', target: '放射性药物', strength: 0.8 },
+                    { source: '放射性药物', target: '代谢活性', strength: 0.9 },
+                    { source: '代谢活性', target: '诊断分期', strength: 0.9 }
+                ],
+                colors: ['#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c']
+            }
+        };
+
+        let currentGraphType = 'mri';
+        let graphAnimationInterval;
+
+        // 导航条功能
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // 关闭移动端菜单当点击链接时
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 导航条滚动效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // 了解更多按钮功能
+        document.getElementById('learn-more').addEventListener('click', () => {
+            document.getElementById('knowledge-graph').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // 滚动指示器功能
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.getElementById('about').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // 知识图谱选项卡切换
+        document.querySelectorAll('.graph-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 移除所有active类
+                document.querySelectorAll('.graph-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.graph-container').forEach(c => c.classList.remove('active'));
+                
+                // 添加active类到当前选项卡
+                tab.classList.add('active');
+                const graphType = tab.getAttribute('data-graph');
+                document.getElementById(`knowledge-graph-${graphType}`).classList.add('active');
+                
+                // 创建对应的知识图谱
+                currentGraphType = graphType;
+                createKnowledgeGraphDemo(graphType);
+            });
+        });
+
+        // 创建知识图谱演示
+        function createKnowledgeGraphDemo(graphType) {
+            const container = document.getElementById(`knowledge-graph-${graphType}`);
+            container.innerHTML = '';
+            
+            const data = graphData[graphType];
+            const svgNS = "http://www.w3.org/2000/svg";
+            const svg = document.createElementNS(svgNS, "svg");
+            svg.setAttribute("width", "100%");
+            svg.setAttribute("height", "100%");
+            svg.setAttribute("viewBox", "0 0 500 400");
+            
+            // 创建连线
+            data.links.forEach(link => {
+                const sourceNode = data.nodes.find(n => n.id === link.source);
+                const targetNode = data.nodes.find(n => n.id === link.target);
+                
+                if (sourceNode && targetNode) {
+                    const line = document.createElementNS(svgNS, "line");
+                    line.setAttribute("x1", sourceNode.x);
+                    line.setAttribute("y1", sourceNode.y);
+                    line.setAttribute("x2", targetNode.x);
+                    line.setAttribute("y2", targetNode.y);
+                    line.setAttribute("stroke", `rgba(52, 152, 219, ${0.3 + link.strength * 0.4})`);
+                    line.setAttribute("stroke-width", Math.max(1, link.strength * 3));
+                    line.setAttribute("class", "graph-link");
+                    line.setAttribute("data-strength", link.strength);
+                    svg.appendChild(line);
+                }
+            });
+
+            // 创建节点
+            data.nodes.forEach(node => {
+                // 创建节点圆形
+                const circle = document.createElementNS(svgNS, "circle");
+                circle.setAttribute("cx", node.x);
+                circle.setAttribute("cy", node.y);
+                circle.setAttribute("r", node.size);
+                circle.setAttribute("fill", getGraphColor(node.group, data.colors));
+                circle.setAttribute("class", "graph-node");
+                circle.setAttribute("data-id", node.id);
+                
+                // 添加发光效果
+                circle.setAttribute("filter", "url(#glow)");
+                
+                // 创建节点文字
+                const text = document.createElementNS(svgNS, "text");
+                text.setAttribute("x", node.x);
+                text.setAttribute("y", node.y + 5);
+                text.setAttribute("text-anchor", "middle");
+                text.setAttribute("fill", "white");
+                text.setAttribute("font-size", "12");
+                text.setAttribute("font-weight", "bold");
+                text.setAttribute("class", "graph-text");
+                text.textContent = node.id;
+                
+                // 创建节点组
+                const group = document.createElementNS(svgNS, "g");
+                group.appendChild(circle);
+                group.appendChild(text);
+                group.setAttribute("class", "node-group");
+                
+                // 添加悬停效果
+                group.addEventListener('mouseenter', function() {
+                    highlightConnectedNodes(node.id, data);
+                });
+                
+                group.addEventListener('mouseleave', function() {
+                    resetNodeHighlights();
+                });
+                
+                svg.appendChild(group);
+            });
+
+            // 添加发光滤镜
+            const defs = document.createElementNS(svgNS, "defs");
+            const filter = document.createElementNS(svgNS, "filter");
+            filter.setAttribute("id", "glow");
+            filter.setAttribute("height", "300%");
+            filter.setAttribute("width", "300%");
+            filter.setAttribute("x", "-75%");
+            filter.setAttribute("y", "-75%");
+            
+            const feGaussianBlur = document.createElementNS(svgNS, "feGaussianBlur");
+            feGaussianBlur.setAttribute("stdDeviation", "3.5");
+            feGaussianBlur.setAttribute("result", "coloredBlur");
+            
+            const feMerge = document.createElementNS(svgNS, "feMerge");
+            const feMergeNode1 = document.createElementNS(svgNS, "feMergeNode");
+            feMergeNode1.setAttribute("in", "coloredBlur");
+            const feMergeNode2 = document.createElementNS(svgNS, "feMergeNode");
+            feMergeNode2.setAttribute("in", "SourceGraphic");
+            
+            feMerge.appendChild(feMergeNode1);
+            feMerge.appendChild(feMergeNode2);
+            filter.appendChild(feGaussianBlur);
+            filter.appendChild(feMerge);
+            defs.appendChild(filter);
+            svg.appendChild(defs);
+
+            container.appendChild(svg);
+            animateGraph();
+        }
+
+        // 高亮相连节点
+        function highlightConnectedNodes(nodeId, data) {
+            const allNodes = document.querySelectorAll('.graph-node');
+            const allLinks = document.querySelectorAll('.graph-link');
+            
+            // 重置所有节点和链接
+            allNodes.forEach(node => {
+                node.style.opacity = '0.3';
+            });
+            allLinks.forEach(link => {
+                link.style.opacity = '0.2';
+            });
+            
+            // 高亮当前节点
+            const currentNode = document.querySelector(`.graph-node[data-id="${nodeId}"]`);
+            if (currentNode) {
+                currentNode.style.opacity = '1';
+                currentNode.style.transform = 'scale(1.2)';
+            }
+            
+            // 高亮相连的节点和链接
+            const connectedLinks = data.links.filter(link => 
+                link.source === nodeId || link.target === nodeId
+            );
+            
+            connectedLinks.forEach(link => {
+                const connectedNodeId = link.source === nodeId ? link.target : link.source;
+                const connectedNode = document.querySelector(`.graph-node[data-id="${connectedNodeId}"]`);
+                const connectedLink = document.querySelector(`.graph-link[data-strength="${link.strength}"]`);
+                
+                if (connectedNode) {
+                    connectedNode.style.opacity = '1';
+                }
+                if (connectedLink) {
+                    connectedLink.style.opacity = '1';
+                    connectedLink.style.strokeWidth = Math.max(2, link.strength * 4) + 'px';
+                }
+            });
+        }
+
+        // 重置节点高亮
+        function resetNodeHighlights() {
+            const allNodes = document.querySelectorAll('.graph-node');
+            const allLinks = document.querySelectorAll('.graph-link');
+            
+            allNodes.forEach(node => {
+                node.style.opacity = '1';
+                node.style.transform = 'scale(1)';
+            });
+            
+            allLinks.forEach(link => {
+                link.style.opacity = '1';
+                link.style.strokeWidth = Math.max(1, link.getAttribute('data-strength') * 3) + 'px';
+            });
+        }
+
+        // 获取图谱节点颜色
+        function getGraphColor(group, colors) {
+            return colors[group - 1] || '#34495e';
+        }
+
+        // 图谱动画
+        function animateGraph() {
+            const nodes = document.querySelectorAll('.graph-node');
+            const links = document.querySelectorAll('.graph-link');
+            
+            // 清除之前的动画
+            if (graphAnimationInterval) {
+                clearInterval(graphAnimationInterval);
+            }
+            
+            // 初始动画
+            nodes.forEach((node, index) => {
+                node.style.opacity = '0';
+                node.style.transform = 'scale(0)';
+                
+                setTimeout(() => {
+                    node.style.transition = 'all 0.5s ease';
+                    node.style.opacity = '1';
+                    node.style.transform = 'scale(1)';
+                }, index * 200);
+            });
+            
+            links.forEach((link, index) => {
+                link.style.opacity = '0';
+                link.style.strokeDasharray = link.getTotalLength();
+                link.style.strokeDashoffset = link.getTotalLength();
+                
+                setTimeout(() => {
+                    link.style.transition = 'all 0.8s ease';
+                    link.style.opacity = '1';
+                    link.style.strokeDashoffset = '0';
+                }, nodes.length * 200 + index * 100);
+            });
+            
+            // 持续的脉动动画
+            graphAnimationInterval = setInterval(() => {
+                const randomNodeIndex = Math.floor(Math.random() * nodes.length);
+                const randomNode = nodes[randomNodeIndex];
+                
+                randomNode.style.transform = 'scale(1.3)';
+                setTimeout(() => {
+                    randomNode.style.transform = 'scale(1)';
+                }, 500);
+            }, 1500);
+        }
+
+        // 刷新知识图谱
+        document.getElementById('refresh-graph').addEventListener('click', () => {
+            createKnowledgeGraphDemo(currentGraphType);
+        });
+
+        // 动画演示按钮
+        document.getElementById('animate-graph').addEventListener('click', () => {
+            animateGraph();
+        });
+
+        // 表单提交
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 简单的表单验证
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const message = this.querySelector('textarea').value;
+            
+            if (name && email && message) {
+                // 显示成功消息
+                const button = this.querySelector('button');
+                const originalText = button.textContent;
+                button.textContent = '发送中...';
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    button.textContent = '发送成功!';
+                    button.style.background = '#2ecc71';
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                        button.style.background = '';
+                        this.reset();
+                    }, 2000);
+                }, 1000);
+            }
+        });
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            createKnowledgeGraphDemo('mri');
+            
+            // 添加加载动画
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
 
     <!-- 科研项目部分 -->
     <section id="projects" class="projects">
